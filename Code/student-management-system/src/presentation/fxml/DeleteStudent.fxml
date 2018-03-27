@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="414.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.DeleteStudentController">
+   <children>
+      <Label fx:id="lblTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="211.0" layoutY="113.0" prefHeight="16.0" prefWidth="184.0" text="Delete Student">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblText1" layoutX="108.0" layoutY="143.0" text="Warning! Permanently deleting student account from the University Database" textFill="#db3838">
+         <font>
+            <Font name="Candara Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtStudentId" layoutX="268.0" layoutY="195.0" prefHeight="48.0" prefWidth="130.0" promptText="studentId" />
+      <Label fx:id="lblStudentId" layoutX="165.0" layoutY="208.0" prefHeight="21.0" prefWidth="91.0" text="Student Id">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Button layoutX="225.0" layoutY="268.0" mnemonicParsing="false" onAction="#deleteStudent" prefHeight="30.0" prefWidth="155.0" text="DELETE" />
+      <Label fx:id="lblSuccess" alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="330.0" prefHeight="21.0" prefWidth="568.0" textFill="#aeed8d">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Label>
+   </children>
+   <effect>
+      <InnerShadow />
+   </effect>
+</AnchorPane>
