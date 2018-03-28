@@ -47,6 +47,10 @@ public class Student {
         this.personalNumericalCode = personalNumericalCode;
     }
 
+    public Student() {
+
+    }
+
     public String getName() {
         return name;
     }

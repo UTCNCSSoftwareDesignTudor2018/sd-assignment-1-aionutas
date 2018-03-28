@@ -18,8 +18,6 @@ public class EnrollmentTable {
 
     private TableView tableView;
 
-    private final String findAllStatementString = "SELECT s.name, c.course FROM student AS s INNER JOIN enrollment AS en on s.studentId = en.studentId INNER JOIN courses AS c on en.courseId = c.courseId";
-
 
     private ObservableList<ObservableList> data;
 

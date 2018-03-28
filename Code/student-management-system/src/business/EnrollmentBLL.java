@@ -1,3 +1,4 @@
+
 package business;
 
 import business.interfaces.EnrollmentBLLInterface;
@@ -16,5 +17,10 @@ public class EnrollmentBLL implements EnrollmentBLLInterface {
     @Override
     public Enrollment newEnrollment(int enrollmentId, Student student, Course course, int period) {
         return enrollmentDAO.newEnrollment(enrollmentId, student, course, period);
+    }
+
+    @Override
+    public Enrollment findEnrollmentById(int enrollmentId) {
+        return enrollmentDAO.findEnrollmentById(enrollmentId);
     }
 }
