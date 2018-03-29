@@ -21,6 +21,7 @@ public class StudentDAO implements StudentDAOInterface {
     private final static String updateStatement = "UPDATE student SET name=?, identityCardNumber=?, personalNumericalCode=?, address=?, username=?, password=?"
             + " WHERE studentId=?";
     private final String findAllStatementString = "SELECT * FROM student";
+    private final String deleteStudent = "DELETE FROM student WHERE studentId = ?";
 
         @Override
         public Student findStudentById(int studentId) {
@@ -122,19 +123,21 @@ public class StudentDAO implements StudentDAOInterface {
         return allStudents;
     }
 
-    public void delete(int id){
-        Connection con = ConnectionFactory.getConnection();
+
+    @Override
+    public void delete(int studentId) {
+        Connection conn = ConnectionFactory.getConnection();
         PreparedStatement statement = null;
 
         try {
-            statement = con.prepareStatement("DELETE FROM student WHERE studentId = ?");
-            statement.setInt(1, id);
+            statement = conn.prepareStatement(deleteStudent);
+            statement.setInt(1, studentId);
             statement.executeUpdate();
         } catch (SQLException e) {
-            LOGGER.log(Level.WARNING,"StudentDao:delete " + e.getMessage());
+            LOGGER.log(Level.WARNING, "StudentDao:deleteStudent " + e.getMessage());
         } finally {
             ConnectionFactory.close(statement);
-            ConnectionFactory.close(con);
+            ConnectionFactory.close(conn);
         }
     }
 

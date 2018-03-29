@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 import static tests.models.EnrollmentTestBuilder.createEnrollment;
@@ -27,11 +28,13 @@ public class EnrollmentControllerTests {
         Enrollment newEnrollment = createEnrollment();
         enrollmentBLL.enroll(newEnrollment);
         when(enrollmentBLL.findEnrollmentById(1)).thenReturn(newEnrollment);
+        assertTrue(enrollmentBLL.findEnrollmentById(1).equals(newEnrollment));
     }
 
     @Test
     public void shouldReturnEnrollment(){
         Enrollment enrollment = createEnrollment();
         when(enrollmentBLL.findEnrollmentById(1)).thenReturn(enrollment);
+        assertTrue(enrollmentBLL.findEnrollmentById(1).equals(enrollment));
     }
 }

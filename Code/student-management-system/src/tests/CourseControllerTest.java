@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 import static tests.models.CourseTestBuilder.createCourse;
 
@@ -24,5 +25,6 @@ public class CourseControllerTest {
     public void shouldGetCourseById(){
         Course course = createCourse();
         when(courseBLL.findById(1)).thenReturn(course);
+        assertTrue(courseBLL.findById(1).equals(course));
     }
 }

@@ -12,6 +12,8 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.List;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 import static tests.models.StudentTestBuilder.*;
 
@@ -31,6 +33,7 @@ public class StudentControllerTests {
     public void shouldGetStudentById(){
         Student student = createStudent();
         when(studentBLL.findStudentById(1)).thenReturn(student);
+        assertTrue(studentBLL.findStudentById(1).equals(student));
     }
 
     @Test
@@ -40,12 +43,14 @@ public class StudentControllerTests {
         when(studentBLL.findStudentById(1)).thenReturn(initialStudent);
         studentBLL.update(initialStudent.getId(), updatedStudent);
         when(studentBLL.findStudentById(1)).thenReturn(updatedStudent);
+        assertTrue(studentBLL.findStudentById(1).equals(updatedStudent));
     }
 
     @Test
     public void shouldGetAllStudents(){
         List<Student> studentList = createListStudents();
         when(studentBLL.findAll()).thenReturn(studentList);
+        assertTrue(studentBLL.findAll().equals(studentList));
     }
 
     @Test
@@ -53,6 +58,7 @@ public class StudentControllerTests {
         Student insertStudent = addNewStudent();
         studentBLL.insertStudent(insertStudent);
         when(studentBLL.findStudentById(2)).thenReturn(insertStudent);
+        assertTrue(studentBLL.findStudentById(2).equals(insertStudent));
     }
 
 

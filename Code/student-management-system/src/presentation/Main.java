@@ -18,6 +18,10 @@ public class Main extends Application {
         primaryStage.setTitle("StudApp");
         primaryStage.setScene(new Scene(root, 605, 420));
         primaryStage.show();
+        StudentBLL studentBLL = new StudentBLL();
+        List<Student> students = studentBLL.findAll();
+        System.out.println(students.get(0));
+        System.out.println(students.get(1));
     }
 
 

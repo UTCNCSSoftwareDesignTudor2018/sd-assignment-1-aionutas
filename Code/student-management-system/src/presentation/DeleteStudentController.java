@@ -23,7 +23,7 @@ public class DeleteStudentController {
 
         @FXML
         public void deleteStudent(ActionEvent actionEvent){
-            if(txtStudentId.getText()!=null && !txtStudentId.getText().isEmpty()) {
+            if(txtStudentId.getText()!=null && !txtStudentId.getText().isEmpty() && studentBLL.findStudentById(Integer.parseInt(txtStudentId.getText()))!=null) {
                 int studentId = Integer.parseInt(txtStudentId.getText());
                 studentBLL.delete(studentId);
                 lblSuccess.setText("Student deleted.");
