@@ -9,6 +9,7 @@ import entity.Student;
 
 public class EnrollmentBLL implements EnrollmentBLLInterface {
     EnrollmentDAO enrollmentDAO = new EnrollmentDAO();
+
     @Override
     public void enroll(Enrollment enrollment) {
         enrollmentDAO.enroll(enrollment);
